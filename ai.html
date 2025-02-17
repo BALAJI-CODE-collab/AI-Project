@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Analytics System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 1s ease-in-out;
+        }
+        .page {
+            width: 80%;
+            max-width: 900px;
+            height: 80vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.1);
+        }
+        .active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #007BFF;
+        }
+        p {
+            font-size: 1.2rem;
+            color: black;
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+            width: 90%;
+        }
+        .next-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .next-btn:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="page active" id="page1">
+            <h1>Retail Analytics System</h1>
+            <p>Real-Time Object Detection (YOLO) helps detect products on store shelves instantly, improving stock accuracy.</p>
+            <p>Inventory Monitoring ensures store managers stay updated on stock levels, movement, and placement in real time.</p>
+            <p>Customer Behavior Analytics helps track and analyze customer interactions with products, providing insights into shopping patterns.</p>
+            <p>The system leverages modern technology including Node.js, Python, React.js, MongoDB, and WebSockets.</p>
+            <button class="next-btn">Next</button>
+        </section>
+        
+        <section class="page" id="page2">
+            <h1>Backend Setup (Node.js)</h1>
+            <p>Install essential dependencies such as Express.js, Mongoose, and Socket.io to build the API.</p>
+            <p>The backend processes product data, manages real-time updates, and integrates with the machine learning module.</p>
+            <p>Machine Learning is handled using a Python server with Flask or FastAPI, which communicates with the backend.</p>
+            <p>Example API endpoints handle fetching product information and processing customer behavior analytics.</p>
+            <button class="next-btn">Next</button>
+        </section>
+        
+        <section class="page" id="page3">
+            <h1>Machine Learning Integration</h1>
+            <p>The Python server with YOLO object detection processes images from store shelves to recognize and track products.</p>
+            <p>Images or video frames are analyzed to identify product names, locations, and stock availability.</p>
+            <p>The detected data is then sent to the backend, where it is stored and further processed for visualization.</p>
+            <p>Using AI, the system can predict stock shortages, suggest restocking times, and detect misplaced products.</p>
+            <button class="next-btn">Next</button>
+        </section>
+        
+        <section class="page" id="page4">
+            <h1>Frontend Development (React.js)</h1>
+            <p>The React-based frontend fetches and displays real-time product and inventory data for store managers.</p>
+            <p>Interactive customer behavior analytics allow users to visualize movement heatmaps and product popularity.</p>
+            <p>WebSockets enable real-time updates, ensuring that managers see stock changes and customer interactions live.</p>
+            <p>Charts, dashboards, and reports provide deeper insights into store efficiency and product demand trends.</p>
+            <button class="next-btn">Next</button>
+        </section>
+        
+        <section class="page" id="page5">
+            <h1>Features & Deployment</h1>
+            <p>The system includes an inventory tracker that generates alerts for low or out-of-stock products.</p>
+            <p>Heatmaps visualize customer interactions, helping retailers understand which products attract the most attention.</p>
+            <p>AI-driven product placement suggestions help optimize store layouts to increase sales and customer engagement.</p>
+            <p>Deployment options include AWS, Heroku, Netlify, or Vercel for a smooth and scalable rollout.</p>
+            <button class="next-btn">Next</button>
+        </section>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let pages = document.querySelectorAll(".page");
+            let currentIndex = 0;
+            
+            document.querySelectorAll(".next-btn").forEach((btn, index) => {
+                btn.addEventListener("click", () => {
+                    pages[currentIndex].classList.remove("active");
+                    currentIndex = (currentIndex + 1) % pages.length;
+                    pages[currentIndex].classList.add("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
